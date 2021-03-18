@@ -1,0 +1,144 @@
+$base-color: #abc;
+$header-background: rgba(255,255,255,0.05);
+$text-color: #bbb;
+
+
+body {
+    margin: 0;
+}
+
+.App {
+    height: 100vh;
+    width: 100vw;
+    background-color: $base-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+.talentCalc {
+    background-image: url("talent-calc-bg.png");
+    background-size: cover;
+    color: $text-color;
+    height: 373px;
+    width: 998px;
+    min-width: 560px;
+    max-width: 80vw;
+    display: grid;
+    grid-template-columns: 80% 1fr;
+    grid-template-rows: 5em 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "header header"
+        "paths budget";
+    @media (max-width: 700px) {
+        height: initial;
+        min-width: initial;
+    }
+}
+
+.talentCalc__header {
+    background-color: $header-background;
+    padding: 0.25em 5em;
+    height: fit-content;
+    margin: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    grid-area: header;
+    @media (max-width: 700px) {
+        margin: 0;
+    }
+}
+.talentCalc__paths {
+    grid-area: paths;
+    margin: 0;
+    display: grid;
+    grid-auto-flow: row;
+    @media (max-width: 700px) {
+        grid-auto-flow: column;
+        margin: 2em;
+    }
+}
+.talentCalc__pointBudget {
+    background-color: #000;
+    height: fit-content;
+    width: fit-content;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    grid-area: budget;
+    margin: 1em;
+    padding: 1em;
+    @media (max-width: 700px) {
+        margin: 0 3em 0 0;
+    }
+}
+.pointBudget__points {
+    font-weight: 100;
+    margin: 0.5em 0;
+}
+.pointBudget__label {
+    font-weight: 100;
+    color: #70a5db;
+    margin: 0.5em 0;
+}
+.path {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: max-content;
+    grid-gap: 0;
+    margin: 0.25em 0 0 1em;
+    @media (max-width: 700px) {
+        grid-auto-flow: row;
+    }
+}
+.talent__connector {
+    background-color: #444;
+    height: 0.75em;
+    width: 100%;
+    margin: 1em 0;
+    align-self: center;
+    border-top: 2px solid #555;
+    border-bottom: 2px solid #555;
+    @media (max-width: 700px) {
+        height: 100%;
+        width: 0.75em;
+        margin: 0;
+        padding: 1em 0;
+        justify-self: center;
+        align-self: initial;
+    }
+}
+.talent__background {
+    background: #70a5db;
+    background: linear-gradient(
+        180deg, 
+        #70a5db 0%, 
+        #70a5db 50%, 
+        #201f20 50%, 
+        #70a5db 100%
+    );
+    height: 0;
+    padding-top: 95%;
+    padding-bottom: 5%;
+    width: 100%;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.talent__background__inactive {
+        filter: grayscale(100%);
+    }
+}
+.talent__icon {
+    width: 90%;
+    align-self: flex-end;
+    &.talent__icon__clickable {
+        cursor: pointer;
+    }
+}
+.talent__label {
+    width: fit-content;
+    margin: 1em 0.5em;
+    align-self: center;
+}
