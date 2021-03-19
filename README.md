@@ -17,4 +17,5 @@ Narrower widths will get an alternative layout:
 
 # To Run
 1: Run the command `yarn` from a terminal in the repository folder (installs dependencies)
+
 2: Run `yarn start`
